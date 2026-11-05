@@ -3,331 +3,302 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>На сколько процентов вы Светлана Горюшкина?</title>
+<title>На сколько % Вы СГ?</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#EDF0F4; --surface:#FFFFFF; --ink:#1B2232; --muted:#5E6779; --line:#D3D9E2;
-  --accent:#E9821C; --accent-ink:#FFFFFF; --good:#2F7A4B; --good-tint:#E3F1E8;
-  --bad:#C2412D; --bad-tint:#F8E4E0;
-  --display:"Unbounded", "Arial Black", system-ui, sans-serif;
-  --body:"Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
-  color-scheme: light;
+  --bg:#0C0B12; --card:#1F1E25; --opt:#2A2930; --line:#3A3942; --ink:#FFFFFF; --muted:#9A99A6;
+  --violet:#8B5CF6; --violet-2:#A855F7; --cyan:#67E8F9; --sel:#2F2440;
+  --grad:linear-gradient(90deg,#A855F7 0%,#8B9CF6 50%,#67E8F9 100%);
+  --btn:linear-gradient(90deg,#7C3AED,#A855F7);
+  --font:"Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color-scheme:dark;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#121722; --surface:#1B2130; --ink:#ECEFF4; --muted:#9AA3B5; --line:#2E3649;
-    --accent:#F2963A; --accent-ink:#1B1206; --good:#62BE87; --good-tint:#18301F;
-    --bad:#F07763; --bad-tint:#3A1D18; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#121722; --surface:#1B2130; --ink:#ECEFF4; --muted:#9AA3B5; --line:#2E3649;
-  --accent:#F2963A; --accent-ink:#1B1206; --good:#62BE87; --good-tint:#18301F;
-  --bad:#F07763; --bad-tint:#3A1D18; color-scheme: dark;
-}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ color-scheme:dark; } }
+:root[data-theme="dark"]{ color-scheme:dark; }
+html{scroll-padding-top:env(safe-area-inset-top,0px);background:var(--bg)}
 *,*::before,*::after{box-sizing:inherit}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
-main{max-width:560px;margin:0 auto;padding:40px 22px 56px}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+#stars{position:fixed;inset:0;pointer-events:none;z-index:0}
+main{position:relative;z-index:1;max-width:660px;margin:0 auto;padding:48px 20px 64px}
 [hidden]{display:none !important}
-h1,h2{font-family:var(--display);font-weight:700;margin:0;letter-spacing:-0.01em}
-h1{font-size:clamp(30px,8vw,44px);line-height:1.08}
-h2{font-size:clamp(21px,5.2vw,26px);line-height:1.22}
+h1,h2,h3{margin:0}
 p{margin:0}
 button{font:inherit;color:inherit;cursor:pointer}
-button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+button:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-.cta{display:inline-block;border:0;border-radius:999px;background:var(--accent);color:var(--accent-ink);
-  font-family:var(--display);font-weight:700;font-size:17px;padding:16px 30px}
-.ghost{background:transparent;border:2px solid var(--line);border-radius:999px;padding:14px 26px;font-weight:600}
+.btn{border:0;border-radius:16px;background:var(--btn);color:#fff;font-weight:800;font-size:18px;padding:18px 34px;
+  box-shadow:0 8px 40px rgba(139,92,246,.45);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 48px rgba(139,92,246,.6)}
+.btn:disabled{opacity:.4;cursor:default;transform:none;box-shadow:none}
+.btn-outline{background:transparent;border:1.5px solid #5B3BA0;border-radius:16px;color:var(--violet-2);font-weight:800;padding:16px 28px}
 
 /* start */
-#start{text-align:center}
-.clock{width:min(300px,78vw);height:auto;display:block;margin:0 auto 34px}
-#start h1{margin-bottom:18px}
-#start .lead{color:var(--muted);max-width:30em;margin:0 auto 30px}
-#start .small{color:var(--muted);font-size:14px;margin-top:14px}
+#start{text-align:center;padding-top:4vh}
+.badge{display:inline-block;padding:10px 22px;border-radius:999px;background:#1E1838;border:1.5px solid #3D3170;
+  color:var(--violet-2);font-weight:600;letter-spacing:.02em;margin-bottom:36px}
+.hero-title{position:relative;font-weight:800;font-size:clamp(52px,14vw,96px);line-height:1;letter-spacing:-0.03em;margin-bottom:26px}
+.hero-title::before{content:"";position:absolute;inset:-20% 10%;background:radial-gradient(closest-side,rgba(139,92,246,.28),transparent);z-index:-1;filter:blur(10px)}
+.sub{font-weight:800;font-size:clamp(20px,5vw,26px);margin-bottom:18px}
+.lead{color:var(--muted);max-width:26em;margin:0 auto}
+.divider{width:80px;height:3px;border-radius:3px;margin:30px auto;background:linear-gradient(90deg,transparent,#7C3AED,transparent)}
+.meta{color:var(--muted);font-size:15px;margin-top:22px}
 
 /* quiz */
-.qhead{display:flex;align-items:center;gap:16px;margin-bottom:28px}
-.qhead svg{width:64px;height:64px;flex:none}
-#qnum{font-weight:700}
-#score{color:var(--muted);font-size:15px}
-#qtext{margin-bottom:22px}
-.opts{display:grid;gap:10px}
-.opt{width:100%;text-align:left;background:var(--surface);border:2px solid var(--line);border-radius:14px;
-  padding:15px 18px;font-weight:600;transition:border-color .15s}
-.opt:hover:not(:disabled){border-color:var(--accent)}
-.opt:disabled{cursor:default}
-.opt.right{border-color:var(--good);background:var(--good-tint)}
-.opt.wrong{border-color:var(--bad);background:var(--bad-tint)}
-.scale{display:grid;grid-template-columns:repeat(auto-fit,minmax(44px,1fr));gap:8px}
-.scale .opt{text-align:center;padding:13px 0;font-family:var(--display);font-weight:700}
-.scale-ends{display:flex;justify-content:space-between;color:var(--muted);font-size:14px;margin-top:8px}
-.video-ph{aspect-ratio:16/9;border:2px dashed var(--line);border-radius:14px;display:grid;place-items:center;
-  color:var(--muted);text-align:center;padding:16px;margin-bottom:16px}
-#fb{min-height:1.6em;margin:18px 0 18px;font-weight:600}
-#fb.ok{color:var(--good)} #fb.no{color:var(--bad)}
+.top{display:flex;justify-content:space-between;color:#C9C8D3;font-size:16px;margin-bottom:12px}
+.bar{height:5px;background:#1E1D25;border-radius:5px;overflow:hidden;margin-bottom:34px}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8B5CF6,#67E8F9);border-radius:5px;transition:width .35s}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:28px;padding:34px 28px 28px}
+.cat{color:var(--violet);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
+.q{font-weight:800;font-size:clamp(21px,5vw,27px);line-height:1.3;margin-bottom:26px}
+.video{aspect-ratio:16/9;background:#000;border:1.5px solid var(--line);border-radius:18px;display:grid;place-items:center;
+  color:var(--muted);text-align:center;padding:16px;margin-bottom:22px;overflow:hidden}
+.video video{width:100%;height:100%;object-fit:contain}
+.opts{display:grid;gap:12px}
+.opt{display:flex;align-items:center;gap:18px;width:100%;text-align:left;background:var(--opt);border:1.5px solid var(--line);
+  border-radius:16px;padding:16px 18px;font-weight:600;font-size:17px;transition:border-color .15s,background .15s}
+.opt:hover{border-color:#5B5A66}
+.opt .l{flex:none;display:grid;place-items:center;width:36px;height:36px;border:1.5px solid #6A6975;border-radius:10px;
+  color:#B9B8C4;font-size:14px;font-weight:700}
+.opt.on{border-color:var(--violet-2);background:var(--sel);box-shadow:0 0 0 1px rgba(168,85,247,.25)}
+.opt.on .l{border-color:var(--violet-2);color:var(--violet-2)}
+.scale{display:grid;grid-template-columns:repeat(auto-fit,minmax(46px,1fr));gap:8px}
+.scale .opt{justify-content:center;padding:14px 0;font-weight:800}
+.ends{display:flex;justify-content:space-between;color:var(--muted);font-size:14px;margin-top:10px}
+.foot{display:flex;justify-content:flex-end;margin-top:28px}
 
 /* result */
-#result{text-align:center}
-#rdial{width:min(260px,70vw);height:auto;display:block;margin:0 auto 28px}
-#rtitle{margin-bottom:12px}
-#rtext{color:var(--muted);max-width:28em;margin:0 auto 30px}
-.actions{display:flex;flex-direction:column;align-items:center;gap:12px}
-#saveNote{color:var(--muted);font-size:14px;min-height:1.4em}
+#result{text-align:center;padding-top:3vh}
+.pct{position:relative;font-weight:800;font-size:clamp(96px,26vw,170px);line-height:1;letter-spacing:-0.04em;margin-bottom:22px}
+.pct::before{content:"";position:absolute;inset:-10% 15%;background:radial-gradient(closest-side,rgba(139,92,246,.3),transparent);z-index:-1}
+.rt{font-weight:800;font-size:clamp(28px,7vw,40px);margin-bottom:14px}
+.rd{color:var(--muted);max-width:28em;margin:0 auto 32px}
+.rcard{background:var(--card);border:1.5px solid var(--line);border-radius:28px;padding:28px 20px;color:var(--muted);margin-bottom:28px}
+.rcard b{color:#D9D8E2}
+.rcard .h{margin-bottom:12px}
+.actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+#saveNote{color:var(--muted);font-size:14px;min-height:1.4em;margin-top:14px}
 
-@media (prefers-reduced-motion: reduce){*{transition:none !important;animation:none !important}}
+@media (max-width:480px){
+  .card{padding:26px 18px 20px;border-radius:22px}
+  .foot .btn{width:100%}
+  .actions .btn,.actions .btn-outline{width:100%}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none !important}}
 </style>
 </head>
 <body>
+<canvas id="stars" aria-hidden="true"></canvas>
 <main>
   <section id="start">
-    <svg class="clock" viewBox="0 0 200 200" aria-hidden="true">
-      <circle cx="100" cy="100" r="92" style="fill:var(--surface);stroke:var(--line)" stroke-width="3"/>
-      <g id="hourTicks"></g>
-      <line x1="100" y1="100" x2="100" y2="160" style="stroke:var(--ink)" stroke-width="7" stroke-linecap="round" transform="rotate(195 100 100)"/>
-      <line x1="100" y1="100" x2="100" y2="176" style="stroke:var(--accent)" stroke-width="4" stroke-linecap="round"/>
-      <circle cx="100" cy="100" r="7" style="fill:var(--accent)"/>
-      <text x="100" y="62" text-anchor="middle" style="fill:var(--muted);font-family:var(--body);font-weight:600" font-size="11">подъём на пробежку</text>
-    </svg>
-    <h1>На сколько процентов вы Светлана Горюшкина?</h1>
-    <p class="lead">10 вопросов, чтобы узнать, насколько вы похожи на настоящего лидера и гуру тайм-менеджмента Светлану Горюшкину.</p>
-    <button class="cta" id="go">Начать квиз</button>
-    <p class="small">Займёт около 3 минут</p>
+    <div class="badge">⏰ Квиз про Светлану</div>
+    <h1 class="hero-title grad">На сколько %<br>Вы СГ?</h1>
+    <p class="sub">Квиз-проверка настоящего лидера</p>
+    <p class="lead">10 вопросов. Честные ответы. Узнайте, насколько Вы похожи на Светлану Горюшкину — лидера и гуру тайм-менеджмента.</p>
+    <div class="divider"></div>
+    <button class="btn" id="go">Начать испытание →</button>
+    <p class="meta">~3 минуты · 10 вопросов</p>
   </section>
 
   <section id="quiz" hidden>
-    <div class="qhead">
-      <svg id="prog" viewBox="0 0 100 100" aria-hidden="true"></svg>
-      <div><div id="qnum"></div><div id="score"></div></div>
+    <div class="top"><span id="qnum"></span><span id="score"></span></div>
+    <div class="bar"><i id="barFill"></i></div>
+    <div class="card">
+      <div class="cat" id="cat"></div>
+      <h2 class="q" id="qtext"></h2>
+      <div id="media"></div>
+      <div id="opts"></div>
+      <div class="foot"><button class="btn" id="next" disabled>Дальше →</button></div>
     </div>
-    <h2 id="qtext"></h2>
-    <div id="media"></div>
-    <div id="opts"></div>
-    <p id="fb" aria-live="polite"></p>
-    <button class="cta" id="next" hidden>Дальше</button>
   </section>
 
   <section id="result" hidden>
-    <svg id="rdial" viewBox="0 0 200 200" role="img" aria-labelledby="rpct">
-      <circle cx="100" cy="100" r="82" fill="none" style="stroke:var(--line)" stroke-width="16"/>
-      <circle id="rarc" cx="100" cy="100" r="82" fill="none" style="stroke:var(--accent)" stroke-width="16"
-        stroke-linecap="round" stroke-dasharray="0 515.2" transform="rotate(-90 100 100)"/>
-      <text id="rpct" x="100" y="114" text-anchor="middle" style="fill:var(--ink);font-family:var(--display);font-weight:800" font-size="42">0%</text>
-    </svg>
-    <h2 id="rtitle"></h2>
-    <p id="rtext"></p>
-    <div class="actions">
-      <button class="cta" id="save" hidden>Скачать картинку для сторис</button>
-      <p id="saveNote" aria-live="polite"></p>
-      <button class="ghost" id="again">Пройти ещё раз</button>
+    <div class="pct grad" id="rpct">0%</div>
+    <h2 class="rt" id="rtitle"></h2>
+    <p class="rd" id="rtext"></p>
+    <div class="rcard">
+      <p class="h">Твой результат</p>
+      <p>Набрано баллов: <b id="rpts"></b> из <b>100</b></p>
+      <p>Совпадение с СГ: <b id="rpct2"></b></p>
     </div>
+    <div class="actions">
+      <button class="btn" id="save" hidden>📸 Скачать для Инстаграма</button>
+      <button class="btn-outline" id="again">Пройти ещё раз</button>
+    </div>
+    <p id="saveNote" aria-live="polite"></p>
   </section>
 </main>
 
 <script>
-// ====== ВОПРОСЫ. a = индекс правильного ответа (с нуля). Для шкал: a = точное значение или min = «засчитываем от N» ======
+// ===== ВОПРОСЫ =====
+// a = индекс правильного ответа (с нуля). Для шкал: target = идеальный ответ, баллы уменьшаются по мере удаления от него.
 const Q = [
-  {t:"Какой у вас был бизнес?", o:["Цветочный","Рекрутинговое агентство","Кофейня","Туристическое агентство"], a:1},
-  {t:"Оцените своё состояние в этом квартале по шкале от 1 до 10", scale:[1,10], min:8, lo:"1", hi:"10"},
-  {t:"Во сколько вы встаёте на пробежку?", o:["8 утра","9 утра","6:30 утра","10 утра"], a:2},
-  {t:"Какой мерч вы выберете?", o:["Рюкзак","Колонку","Белую футболку размера XS","Флиску размера S"], a:2},
-  {t:"Вы организуете TGS-вечеринку. Что в ней самое важное?", o:["Чтобы все победители получили награду","Чтобы всех победителей поздравили руководители","Чтобы все победители плакали","Чтобы все победители были довольны"], a:2},
-  {t:"Что происходит на этом видео?", video:true, o:["Вариант 1","Вариант 2","Вариант 3","Вариант 4"], a:0},
-  {t:"Какую книгу вы читаете вечером?", o:["Толстой","Достоевский","Макс Фрай","Грибоедов"], a:2},
-  {t:"Где бы вы провели вечер?", o:["В джаз-клубе в подвале старого здания в центре","На пустынном пляже","В спортзале","Дома за просмотром фильма"], a:0},
-  {t:"Кто вы в тайм-менеджменте?", scale:[0,10], a:10, lo:"0 — новичок", hi:"10 — мастодонт"},
-  {t:"Какой цветок растёт у вас на балконе?", o:["Фейхоа","Кумкват","Эвкалипт"], a:1},
+  {cat:"💼 Бизнес", t:"Какой у вас был бизнес?", o:["Цветочный","Рекрутинговое агентство","Кофейня","Туристическое агентство"], a:1},
+  {cat:"📊 Самочувствие", t:"Оцените своё состояние в этом квартале по шкале от 1 до 10", scale:[1,10], target:10, lo:"1", hi:"10"},
+  {cat:"🏃‍♀️ Спорт", t:"Во сколько вы встаёте на пробежку?", o:["8 утра","9 утра","6:30 утра","10 утра"], a:2},
+  {cat:"🎁 Мерч", t:"Какой мерч вы выберете?", o:["Рюкзак","Колонку","Белую футболку размера XS","Флиску размера S"], a:2},
+  {cat:"🏆 TGS", t:"Вы организуете TGS-вечеринку. Что в ней самое важное?", o:["Чтобы все победители получили награду","Чтобы всех победителей поздравили руководители","Чтобы все победители плакали","Чтобы все победители были довольны"], a:2},
+  {cat:"🎬 Видео-вопрос", t:"Что происходит на данном видео?", video:"", o:["Вариант 1","Вариант 2","Вариант 3","Вариант 4"], a:0},
+  {cat:"📚 Чтение", t:"Какую книгу вы читаете вечером?", o:["Толстой","Достоевский","Макс Фрай","Грибоедов"], a:2},
+  {cat:"🌙 Вечер", t:"Где бы вы провели вечер?", o:["В джаз-клубе в подвале старого здания в центре","На пустынном пляже","В спортзале","Дома за просмотром фильма"], a:0},
+  {cat:"⏱️ Тайм-менеджмент", t:"Кто вы в тайм-менеджменте?", scale:[0,10], target:10, lo:"0 = новичок", hi:"10 = мастодонт"},
+  {cat:"🌿 Балкон", t:"Какой цветок растёт у вас на балконе?", o:["Фейхоа","Кумкват","Эвкалипт"], a:1},
 ];
-const RIGHT = ["Точно как Светлана.","Да, именно так.","Светлана бы одобрила.","В яблочко.","Совпадение полное."];
 const TIERS = [
-  [30, "Вы только начинаете путь", "Начните с малого: поставьте будильник на 6:30. Остальное приложится."],
-  [60, "Хорошая база", "Кое-что общее у вас со Светланой точно есть. Ещё немного дисциплины, и процент вырастет."],
-  [90, "Вы почти Светлана", "Ещё чуть-чуть, и вас начнут путать в коридорах."],
-  [100,"Вы и есть Светлана", "Или знаете её лучше всех. В любом случае — максимальный результат."],
+  [30,  "🌱 Начинающий СГ", "Начните с малого: будильник на 6:30 и пробежка. Остальное приложится."],
+  [60,  "⚡ Хорошая база", "Кое-что общее со Светланой у Вас точно есть. Ещё немного дисциплины — и процент вырастет."],
+  [90,  "🔥 Почти СГ", "Ещё немного — и Вас можно спутать. Осталось завести кумкват на балконе."],
+  [100, "👑 Вы и есть СГ", "Или знаете Светлану лучше всех. Максимальный результат."],
 ];
+const LETTERS = "ABCD";
 
 const $ = id => document.getElementById(id);
 const N = Q.length;
-let i = 0, score = 0, locked = false;
+let i = 0, total = 0, picked = null;
 
-function pts(n){const m10=n%10,m100=n%100;
-  if(m10===1&&m100!==11) return n+" балл";
-  if(m10>=2&&m10<=4&&(m100<12||m100>14)) return n+" балла";
+function pts(n){const a=n%10,b=n%100;
+  if(a===1&&b!==11) return n+" балл";
+  if(a>=2&&a<=4&&(b<12||b>14)) return n+" балла";
   return n+" баллов";}
 
-function show(id){
-  for(const s of document.querySelectorAll("main > section")) s.hidden = s.id!==id;
-  window.scrollTo(0,0);
+function points(q,v){
+  if(q.scale){ const range=q.scale[1]-q.scale[0]; return Math.max(0, Math.round(10*(1-Math.abs(v-q.target)/range))); }
+  return v===q.a ? 10 : 0;
 }
 
-// часовые деления на стартовом циферблате
-(function(){
-  let h="";
-  for(let k=0;k<12;k++){
-    const a=k*30*Math.PI/180, long=k%3===0;
-    const r1=long?72:78, r2=86;
-    h+=`<line x1="${100+r1*Math.sin(a)}" y1="${100-r1*Math.cos(a)}" x2="${100+r2*Math.sin(a)}" y2="${100-r2*Math.cos(a)}" style="stroke:var(--ink)" stroke-width="${long?4:2}" stroke-linecap="round"/>`;
-  }
-  $("hourTicks").innerHTML=h;
-})();
-
-function progress(done, cur){
-  let h=`<circle cx="50" cy="50" r="46" style="fill:var(--surface);stroke:var(--line)" stroke-width="2"/>`;
-  for(let k=0;k<N;k++){
-    const a=k/N*2*Math.PI;
-    const c = k<done ? "var(--accent)" : "var(--line)";
-    h+=`<line x1="${50+30*Math.sin(a)}" y1="${50-30*Math.cos(a)}" x2="${50+40*Math.sin(a)}" y2="${50-40*Math.cos(a)}" style="stroke:${c}" stroke-width="5" stroke-linecap="round"/>`;
-  }
-  const a=cur/N*2*Math.PI;
-  h+=`<line x1="50" y1="50" x2="${50+24*Math.sin(a)}" y2="${50-24*Math.cos(a)}" style="stroke:var(--ink)" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="50" r="4" style="fill:var(--accent)"/>`;
-  $("prog").innerHTML=h;
-}
+function show(id){ for(const s of document.querySelectorAll("main > section")) s.hidden = s.id!==id; window.scrollTo(0,0); }
 
 function render(){
-  const q=Q[i]; locked=false;
+  const q=Q[i]; picked=null;
   $("qnum").textContent=`Вопрос ${i+1} из ${N}`;
-  $("score").textContent=pts(score);
+  $("score").textContent=pts(total);
+  $("barFill").style.width=(i/N*100)+"%";
+  $("cat").textContent=q.cat;
   $("qtext").textContent=q.t;
-  $("fb").textContent=""; $("fb").className="";
-  $("next").hidden=true;
-  progress(i, i);
-  $("media").innerHTML = q.video ? `<div class="video-ph">Здесь будет видео с Саммита</div>` : "";
+  $("next").disabled=true;
+  $("next").textContent = i===N-1 ? "Узнать результат →" : "Дальше →";
+  const media=$("media");
+  if("video" in q){
+    media.innerHTML = q.video ? `<div class="video"><video controls playsinline preload="metadata" src="${q.video}"></video></div>`
+                              : `<div class="video">Здесь будет видео с Саммита</div>`;
+  } else media.innerHTML="";
   const box=$("opts"); box.innerHTML="";
+  const wrap=document.createElement("div");
   if(q.scale){
-    const grid=document.createElement("div"); grid.className="scale";
-    for(let v=q.scale[0]; v<=q.scale[1]; v++){
-      const b=document.createElement("button"); b.className="opt"; b.textContent=v; b.dataset.v=v;
-      b.onclick=()=>choose(v,b); grid.appendChild(b);
-    }
-    box.appendChild(grid);
-    const ends=document.createElement("div"); ends.className="scale-ends";
-    ends.innerHTML=`<span></span><span></span>`;
-    ends.children[0].textContent=q.lo; ends.children[1].textContent=q.hi;
-    box.appendChild(ends);
+    wrap.className="scale";
+    for(let v=q.scale[0]; v<=q.scale[1]; v++) wrap.appendChild(optBtn(String(v), null, v));
+    box.appendChild(wrap);
+    const ends=document.createElement("div"); ends.className="ends";
+    const l=document.createElement("span"), r=document.createElement("span");
+    l.textContent=q.lo; r.textContent=q.hi; ends.append(l,r); box.appendChild(ends);
   } else {
-    const list=document.createElement("div"); list.className="opts";
-    q.o.forEach((txt,idx)=>{
-      const b=document.createElement("button"); b.className="opt"; b.textContent=txt; b.dataset.v=idx;
-      b.onclick=()=>choose(idx,b); list.appendChild(b);
-    });
-    box.appendChild(list);
+    wrap.className="opts";
+    q.o.forEach((txt,idx)=>wrap.appendChild(optBtn(txt, LETTERS[idx], idx)));
+    box.appendChild(wrap);
   }
 }
 
-function isRight(q,v){ return q.scale ? (q.min!=null ? v>=q.min : v===q.a) : v===q.a; }
-
-function choose(v, btn){
-  if(locked) return; locked=true;
-  const q=Q[i], ok=isRight(q,v);
-  if(ok) score++;
-  for(const b of $("opts").querySelectorAll(".opt")){
-    b.disabled=true;
-    if(isRight(q, Number(b.dataset.v))) b.classList.add("right");
-  }
-  if(!ok) btn.classList.add("wrong");
-  const fb=$("fb");
-  if(ok){ fb.textContent=RIGHT[i%RIGHT.length]; fb.className="ok"; }
-  else{
-    const ans = q.scale ? (q.min!=null ? `от ${q.min} и выше` : String(q.a)) : `«${q.o[q.a]}»`;
-    fb.textContent=`Светлана ответила бы: ${ans}`; fb.className="no";
-  }
-  $("score").textContent=pts(score);
-  progress(i+1, i+1);
-  const nx=$("next"); nx.textContent = i===N-1 ? "Узнать результат" : "Дальше"; nx.hidden=false; nx.focus();
+function optBtn(text, letter, val){
+  const b=document.createElement("button"); b.className="opt"; b.type="button";
+  if(letter){ const l=document.createElement("span"); l.className="l"; l.textContent=letter; b.appendChild(l); }
+  const s=document.createElement("span"); s.textContent=text; b.appendChild(s);
+  b.onclick=()=>{
+    picked=val;
+    for(const o of $("opts").querySelectorAll(".opt")) o.classList.toggle("on", o===b);
+    $("next").disabled=false;
+  };
+  return b;
 }
 
-$("next").onclick=()=>{ if(i<N-1){ i++; render(); } else finish(); };
+$("next").onclick=()=>{
+  if(picked===null) return;
+  total+=points(Q[i],picked);
+  if(i<N-1){ i++; render(); } else finish();
+};
 
 function tier(p){ return TIERS.find(t=>p<=t[0]); }
 
 function finish(){
-  const pct=Math.round(score/N*100), t=tier(pct);
+  $("barFill").style.width="100%";
+  const pct=total, t=tier(pct);
   show("result");
   $("rtitle").textContent=t[1]; $("rtext").textContent=t[2];
-  const C=515.2, arc=$("rarc"), label=$("rpct");
-  const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if(still){ arc.setAttribute("stroke-dasharray",`${C*pct/100} ${C}`); label.textContent=pct+"%"; return; }
-  const t0=performance.now(), dur=1400;
+  $("rpts").textContent=total; $("rpct2").textContent=pct+"%";
+  const el=$("rpct");
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches){ el.textContent=pct+"%"; return; }
+  const t0=performance.now(), dur=1300;
   (function step(now){
-    const k=Math.min(1,(now-t0)/dur), e=1-Math.pow(1-k,3), cur=pct*e;
-    arc.setAttribute("stroke-dasharray",`${C*cur/100} ${C}`);
-    label.textContent=Math.round(cur)+"%";
+    const k=Math.min(1,(now-t0)/dur), e=1-Math.pow(1-k,3);
+    el.textContent=Math.round(pct*e)+"%";
     if(k<1) requestAnimationFrame(step);
   })(t0);
 }
 
-$("go").onclick=()=>{ i=0; score=0; show("quiz"); render(); };
+$("go").onclick=()=>{ i=0; total=0; show("quiz"); render(); };
 $("again").onclick=()=>{ $("saveNote").textContent=""; show("start"); };
 
-// ====== картинка для сторис ======
+// ===== звёздочки на фоне =====
+(function(){
+  const c=$("stars"), x=c.getContext("2d"); let dots=[];
+  function size(){
+    const d=window.devicePixelRatio||1; c.width=innerWidth*d; c.height=innerHeight*d; x.setTransform(d,0,0,d,0,0);
+    dots=Array.from({length:Math.round(innerWidth*innerHeight/14000)},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.6+.4,a:Math.random()*.5+.15}));
+    x.clearRect(0,0,innerWidth,innerHeight);
+    for(const p of dots){ x.beginPath(); x.arc(p.x,p.y,p.r,0,7); x.fillStyle=`rgba(139,92,246,${p.a})`; x.fill(); }
+  }
+  size(); addEventListener("resize",size);
+})();
+
+// ===== картинка для Инстаграма =====
 let downloads=null;
 const inClaude = !!(window.claude && window.claude.use);
 (async()=>{
-  if(!inClaude){ $("save").hidden=false; return; } // обычный сайт (Vercel и т.п.)
-  try{
-    downloads = await window.claude.use("downloads");
-    if(downloads) $("save").hidden=false;
-  }catch(e){}
+  if(!inClaude){ $("save").hidden=false; return; }
+  try{ downloads=await window.claude.use("downloads"); if(downloads) $("save").hidden=false; }catch(e){}
 })();
 
-function wrap(ctx, text, x, y, maxW, lh){
+function wrapText(ctx,text,x,y,maxW,lh){
   const words=text.split(" "); let line="";
-  for(const w of words){
-    const test=line?line+" "+w:w;
-    if(ctx.measureText(test).width>maxW && line){ ctx.fillText(line,x,y); line=w; y+=lh; }
-    else line=test;
-  }
-  if(line) ctx.fillText(line,x,y);
-  return y+lh;
+  for(const w of words){ const t=line?line+" "+w:w;
+    if(ctx.measureText(t).width>maxW&&line){ ctx.fillText(line,x,y); line=w; y+=lh; } else line=t; }
+  if(line) ctx.fillText(line,x,y); return y+lh;
 }
 
 async function storyBlob(){
   await document.fonts.ready;
-  const pct=Math.round(score/N*100), t=tier(pct);
-  const c=document.createElement("canvas"); c.width=1080; c.height=1920;
-  const x=c.getContext("2d");
-  x.fillStyle="#1B2232"; x.fillRect(0,0,1080,1920);
-  x.textAlign="center"; x.fillStyle="#ECEFF4";
-  x.font='700 62px Unbounded, "Arial Black", sans-serif';
-  wrap(x,"На сколько процентов вы Светлана Горюшкина?",540,300,880,80);
-  // кольцо
-  x.lineWidth=46; x.lineCap="round";
-  x.strokeStyle="#2E3649"; x.beginPath(); x.arc(540,900,290,0,Math.PI*2); x.stroke();
-  x.strokeStyle="#F2963A"; x.beginPath(); x.arc(540,900,290,-Math.PI/2,-Math.PI/2+Math.PI*2*pct/100); if(pct>0) x.stroke();
-  x.fillStyle="#FFFFFF"; x.font='800 190px Unbounded, "Arial Black", sans-serif';
-  x.fillText(pct+"%",540,968);
-  x.fillStyle="#F2963A"; x.font='700 64px Unbounded, "Arial Black", sans-serif';
-  let y=wrap(x,t[1],540,1340,900,80);
-  x.fillStyle="#C9CFDA"; x.font='500 40px Manrope, "Segoe UI", sans-serif';
-  wrap(x,t[2],540,y+20,860,56);
+  const pct=total, t=tier(pct);
+  const c=document.createElement("canvas"); c.width=1080; c.height=1920; const x=c.getContext("2d");
+  x.fillStyle="#0C0B12"; x.fillRect(0,0,1080,1920);
+  const g=x.createRadialGradient(540,860,0,540,860,520); g.addColorStop(0,"rgba(139,92,246,.35)"); g.addColorStop(1,"rgba(139,92,246,0)");
+  x.fillStyle=g; x.fillRect(0,0,1080,1920);
+  for(let k=0;k<90;k++){ x.beginPath(); x.arc(Math.random()*1080,Math.random()*1920,Math.random()*3+1,0,7); x.fillStyle=`rgba(139,92,246,${Math.random()*.5+.15})`; x.fill(); }
+  x.textAlign="center";
+  x.font='600 40px Inter, sans-serif'; x.fillStyle="#A855F7"; x.fillText("⏰ Квиз про Светлану",540,330);
+  x.font='800 84px Inter, sans-serif'; x.fillStyle="#FFFFFF"; x.fillText("На сколько % Вы СГ?",540,460);
+  const lg=x.createLinearGradient(200,0,880,0); lg.addColorStop(0,"#A855F7"); lg.addColorStop(.5,"#8B9CF6"); lg.addColorStop(1,"#67E8F9");
+  x.font='800 300px Inter, sans-serif'; x.fillStyle=lg; x.fillText(pct+"%",540,1000);
+  x.font='800 76px Inter, sans-serif'; x.fillStyle="#FFFFFF"; let y=wrapText(x,t[1],540,1200,920,90);
+  x.font='500 42px Inter, sans-serif'; x.fillStyle="#9A99A6"; wrapText(x,t[2],540,y+20,860,60);
   return await new Promise(r=>c.toBlob(r,"image/png"));
 }
 
 $("save").onclick=async()=>{
   const note=$("saveNote"); note.textContent="Готовим картинку…";
   try{
-    const blob=await storyBlob();
-    const pct=Math.round(score/N*100);
-    const name=`svetlana-${pct}.png`;
-    if(downloads){ await downloads.save({filename:name, data:blob}); }
-    else{
-      const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=name;
-      document.body.appendChild(a); a.click(); a.remove();
-      setTimeout(()=>URL.revokeObjectURL(a.href),2000);
-    }
+    const blob=await storyBlob(), name=`sg-quiz-${total}.png`;
+    if(downloads){ await downloads.save({filename:name,data:blob}); }
+    else{ const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),2000); }
     note.textContent="Картинка сохранена.";
   }catch(e){
-    if(e && e.code==="declined") note.textContent="";
-    else if(e && e.code==="rate_limited") note.textContent="Подождите пару секунд и нажмите ещё раз.";
-    else { note.textContent="Скачивание сейчас недоступно."; }
+    if(e&&e.code==="declined") note.textContent="";
+    else if(e&&e.code==="rate_limited") note.textContent="Подождите пару секунд и нажмите ещё раз.";
+    else note.textContent="Скачивание сейчас недоступно.";
   }
 };
 </script>
