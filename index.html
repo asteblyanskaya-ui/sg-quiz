@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>На сколько % Вы СГ?</title>
+<title>На сколько % Вы Светлана Горюшкина?</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -43,7 +43,7 @@ button:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
 #start{text-align:center;padding-top:4vh}
 .badge{display:inline-block;padding:10px 22px;border-radius:999px;background:#14213A;border:1.5px solid #2A4775;
   color:var(--violet-2);font-weight:600;letter-spacing:.02em;margin-bottom:36px}
-.hero-title{position:relative;font-weight:800;font-size:clamp(52px,14vw,96px);line-height:1;letter-spacing:-0.03em;margin-bottom:26px}
+.hero-title{position:relative;font-weight:800;font-size:clamp(40px,10vw,72px);line-height:1.05;letter-spacing:-0.03em;margin-bottom:26px}
 .hero-title::before{content:"";position:absolute;inset:-20% 10%;background:radial-gradient(closest-side,rgba(59,130,246,.28),transparent);z-index:-1;filter:blur(10px)}
 .sub{font-weight:800;font-size:clamp(20px,5vw,26px);margin-bottom:18px}
 .lead{color:var(--muted);max-width:26em;margin:0 auto}
@@ -98,7 +98,7 @@ button:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
 <main>
   <section id="start">
     <div class="badge">⏰ Квиз про Светлану</div>
-    <h1 class="hero-title grad">На сколько %<br>Вы СГ?</h1>
+    <h1 class="hero-title grad">На сколько %<br>Вы Светлана Горюшкина?</h1>
     <p class="sub">Квиз-проверка настоящего лидера</p>
     <p class="lead">15 вопросов. Честные ответы. Узнайте, насколько Вы похожи на Светлану Горюшкину — лидера и гуру тайм-менеджмента.</p>
     <div class="divider"></div>
@@ -125,7 +125,7 @@ button:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
     <div class="rcard">
       <p class="h">Твой результат</p>
       <p>Набрано баллов: <b id="rpts"></b> из <b id="rmax">150</b></p>
-      <p>Совпадение с СГ: <b id="rpct2"></b></p>
+      <p>Совпадение со Светланой Горюшкиной: <b id="rpct2"></b></p>
     </div>
     <div class="actions">
       <button class="btn" id="save" hidden>📸 Скачать для Инстаграма</button>
@@ -150,16 +150,16 @@ const Q = [
   {cat:"📚 Чтение", t:"Какую книгу вы выберете почитать?", o:["«Тревожные люди» — Ф. Бакман","«Кафе на краю Земли» — Джон Стрелеки","Серии «Лабиринты Ехо», «Хроники Ехо», «Сновидения Ехо» — Макс Фрай","«Чёрные кувшинки» — Мишель Бюсси"], a:2},
   {cat:"🌙 Вечер", t:"У вас есть свободный вечер. Как вы его проведёте?", o:["Конечно, в классном джаз-клубе","Посижу на пустынном пляже и буду любоваться звёздами","Разомнусь в спортзале","Останусь дома и посмотрю кино"], a:0},
   {cat:"⏱️ Тайм-менеджмент", t:"Кто вы в тайм-менеджменте?", scale:[0,10], target:10, lo:"0 = новичок", hi:"10 = мастодонт"},
-  {cat:"☕ Кофе", t:"Какой кофе вы закажете?", o:["Капучино","Флэт уайт","Раф","Американо без сахара"], a:0},
+  {cat:"☕ Кофе", t:"Бариста принёс вам капучино без рисунка на пене. Ваши действия?", o:["Выпью как есть, главное — вкус","Попрошу переделать","Покажу, как нарисовать розетту","Посыплю корицей, и так сойдёт"], a:2},
   {cat:"📅 Планирование", t:"Как вы планируете свой день?", o:["Расписываю всё в календаре по минутам","Список задач в блокноте","Решаю по ходу дня","За меня планирует ассистент"], a:0},
   {cat:"⏰ Встречи", t:"Встреча должна была начаться 5 минут назад, но половины участников нет. Что вы сделаете?", o:["Подожду ещё немного","Начну без опоздавших","Перенесу встречу","Напишу каждому лично"], a:3},
   {cat:"🌿 Балкон", t:"Какой цветок растёт у вас на балконе?", o:["Фейхоа","Кумкват","Эвкалипт","Розы"], a:1},
 ];
 const TIERS = [
-  [30,  "🌱 Начинающий СГ", "Начните с малого: будильник на 6:30 и пробежка. Остальное приложится."],
+  [30,  "🌱 Начинающая Светлана Горюшкина", "Начните с малого: будильник на 6:30 и пробежка. Остальное приложится."],
   [60,  "⚡ Хорошая база", "Кое-что общее со Светланой у Вас точно есть. Ещё немного дисциплины — и процент вырастет."],
-  [90,  "🔥 Почти СГ", "Ещё немного — и Вас можно спутать. Осталось завести кумкват на балконе."],
-  [100, "👑 Вы и есть СГ", "Или знаете Светлану лучше всех. Максимальный результат."],
+  [90,  "🔥 Почти Светлана Горюшкина", "Ещё немного — и Вас можно спутать. Осталось завести кумкват на балконе."],
+  [100, "👑 Вы и есть Светлана Горюшкина", "Или знаете Светлану лучше всех. Максимальный результат."],
 ];
 const LETTERS = "ABCD";
 
@@ -286,7 +286,7 @@ async function storyBlob(){
   for(let k=0;k<90;k++){ x.beginPath(); x.arc(Math.random()*1080,Math.random()*1920,Math.random()*3+1,0,7); x.fillStyle=`rgba(59,130,246,${Math.random()*.5+.15})`; x.fill(); }
   x.textAlign="center";
   x.font='600 40px Inter, sans-serif'; x.fillStyle="#60A5FA"; x.fillText("⏰ Квиз про Светлану",540,330);
-  x.font='800 84px Inter, sans-serif'; x.fillStyle="#FFFFFF"; x.fillText("На сколько % Вы СГ?",540,460);
+  x.font='800 72px Inter, sans-serif'; x.fillStyle="#FFFFFF"; wrapText(x,"На сколько % Вы Светлана Горюшкина?",540,450,940,86);
   const lg=x.createLinearGradient(200,0,880,0); lg.addColorStop(0,"#60A5FA"); lg.addColorStop(.5,"#4FA3F7"); lg.addColorStop(1,"#67E8F9");
   x.font='800 300px Inter, sans-serif'; x.fillStyle=lg; x.fillText(pct+"%",540,1000);
   x.font='800 76px Inter, sans-serif'; x.fillStyle="#FFFFFF"; let y=wrapText(x,t[1],540,1200,920,90);
